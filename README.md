@@ -25,10 +25,15 @@ curl "0:8080/short/2db9cd01-e909-448d-8883-93e2773657a7"
 just run (with docker installed):
 
 ```bash
-# to download and start nginx frontend server
+# to download image and start nginx frontend server
 ./10_run_nginx.sh
-# to start php-fpm backend server (used by enginx)
+# to download image start php-fpm backend server (used by nginx)
 ./20_run_php.sh
 ```
+
+Images used:
+
+- `bitnami/nginx` - bitnami built `nginx`
+- `bitnami/php-fpm` - and accompanying `php`
 
 The go to <http://localhost:8080> beware that the port `8080` has to be available in order to start.
