@@ -1,0 +1,45 @@
+textarea {
+  width: 30em;
+  height: 10em;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  border-left: 1em solid black;
+  padding: 1em;
+  margin: 1em;
+}
+pre {
+  border: 1px dotted gray;
+  display: inline-block;
+}
+pre#example::before {
+  content: "example:";
+  background-color: navy;
+  color: gold;
+  padding-right: 1em;
+  padding-left: 1em;
+  border-radius: 0.3em;
+}
+pre#res::before {
+  content: "result:";
+  background-color: navy;
+  color: gold;
+  padding-right: 1em;
+  padding-left: 1em;
+  border-radius: 0.3em;
+}
+pre#err {
+  color: red;
+}
+pre#err::before {
+  content: "error:";
+  color: red;
+  font-weight: bold;
+  padding-right: 1em;
+  padding-left: 1em;
+  border-radius: 0.3em;
+}

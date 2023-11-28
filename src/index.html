@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎙️</text></svg>"
+    />
+    <title>PHP & Nginx in container</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>PHP & Nginx in container</h1>
+    This application was made in good faith that it can help any interested folk
+    to make smart and easy to readu urls that does not contain non-ascii or
+    other weird characters.
+    <br />
+    It can turn following url:
+    <pre>
+http://some.server.com/poll.php/?username=Johnny+English&period=1900-2023&grade=top+secret&reward=>john+girl</pre
+    >
+    <br />
+    into something more legible as:
+    <br />
+    <pre>
+http://some.server.com/poll/?uuid=2db9cd01-e909-448d-8883-93e2773657a7</pre
+    >
+    <br />
+    with much less characters that could get corrupted during transfer and as
+    embedded url inside email. It should also be much easier to copy and paste
+    such url. Eventually it can become:
+    <br />
+    <pre>http://some.server.com/poll/2db9cd01-e909-448d-8883-93e2773657a7</pre>
+    <br />
+    if url rewriting is used
+    <ul>
+      <li>Basic phpinfo<br /><a href="phpinfo.php">phpinfo.php</a></li>
+      <li>
+        The app exercised below<br /><a href="short/">short/</a>- the app
+        retrieval and storage
+      </li>
+      <li>
+        Set the value for uuid = 2db9cd01-e909-448d-8883-93e2773657a7
+        <br />
+        <form
+          id="form"
+          action="short/?uuid=2db9cd01-e909-448d-8883-93e2773657a7"
+          onsubmit="return doSubmit()"
+        >
+          <pre id="example">{"keyA":"valA","sub":{"keyB":"valB"}}</pre>
+          <br />
+          <textarea id="ta" placeholder="put valid json here"></textarea>
+          <br /><input
+            type="submit"
+            value="submit uuid = 2db9cd01-e909-448d-8883-93e2773657a7"
+          /><br />
+          <div id="res-submit">Result:</div>
+        </form>
+      </li>
+      <li>
+        <form onsubmit="return false">
+          <button id="retrieve">
+            retrieve test uuid = 2db9cd01-e909-448d-8883-93e2773657a7
+          </button>
+          <br />
+          <div id="res-retrieve">Result:</div>
+        </form>
+        <a href="/short/2db9cd01-e909-448d-8883-93e2773657a7" target="_blank"
+          >/short/2db9cd01-e909-448d-8883-93e2773657a7</a
+        >
+      </li>
+    </ul>
+    <script src="script.js"></script>
+  </body>
+</html>
