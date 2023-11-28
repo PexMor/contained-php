@@ -2,13 +2,13 @@
 
 Nginx and PHP in container made simple.
 
-Command to retrieve values:
+Command to store JSON values:
 
 ```bash
 curl -X POST "0:8080/short/?uuid=2db9cd01-e909-448d-8883-93e2773657a7" --data '{"keyA":"valA","sub":{"keyB":"valB"}}'
 ```
 
-Command to retrieve values:
+Command to retrieve JSON values:
 
 ```bash
 curl "0:8080/short/?uuid=2db9cd01-e909-448d-8883-93e2773657a7"
