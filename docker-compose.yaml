@@ -1,0 +1,16 @@
+version: '3'
+services:
+    nginx:
+        image: bitnami/nginx
+        volumes:
+            - "${PWD}/src:/app"
+            - "${PWD}/cfg/nginx-dns.cfg:/opt/bitnami/nginx/conf/server_blocks/my_server_block.conf:ro"
+        ports:
+            - "8080:8080"
+        depends_on:
+            - phpfpm
+    phpfpm:
+        image: bitnami/php-fpm
+        volumes:
+            - "${PWD}/src:/app:ro"
+            - "${PWD}/tmp:/www-data"
